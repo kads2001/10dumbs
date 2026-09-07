@@ -1,0 +1,227 @@
+/* ==========================================================================
+   RESPONSIVE MEDIA QUERIES & BREAKPOINTS
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. TABLET & LAPTOP (max-width: 1024px)
+   -------------------------------------------------------------------------- */
+@media (max-width: 1024px) {
+  .hero-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-xl);
+  }
+
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .service-row {
+    grid-template-columns: 1fr;
+    gap: var(--space-md);
+  }
+
+
+}
+
+/* --------------------------------------------------------------------------
+   2. MOBILE LANDSCAPE & SMALL TABLET (max-width: 900px)
+   -------------------------------------------------------------------------- */
+@media (max-width: 900px) {
+  .mobile-menu-toggle {
+    display: block;
+  }
+
+  .nav-menu {
+    position: fixed;
+    top: 72px;
+    left: 0;
+    right: 0;
+    background-color: var(--color-light-bg);
+    flex-direction: column;
+    padding: var(--space-lg);
+    box-shadow: var(--shadow-lg);
+    display: none;
+    z-index: var(--z-dropdown);
+  }
+
+  .header-cosmic .nav-menu {
+    background-color: #060919;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .nav-menu.active {
+    display: flex;
+  }
+
+  .section-header-split,
+  .services-header {
+    grid-template-columns: 1fr;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-sm);
+  }
+
+  .service-row {
+    grid-template-columns: 1fr;
+    gap: var(--space-md);
+    padding: var(--space-lg) 0;
+  }
+
+  .projects-masonry-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-xl);
+  }
+
+  .testimonials-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .capabilities-grid,
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-xl);
+  }
+
+  .footer-cta-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-md);
+  }
+
+  .footer-main-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-xl);
+  }
+}
+
+/* --------------------------------------------------------------------------
+   3. MOBILE PHONES (max-width: 600px)
+   -------------------------------------------------------------------------- */
+@media (max-width: 600px) {
+  .hero-tags-pill-row,
+  .hero-tags-pill-bar {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 4px;
+  }
+
+  .hero-tag-pill,
+  .hero-tag-item {
+    font-size: 12px;
+    padding: 6px 14px;
+  }
+
+  .hero-tag-separator {
+    display: none;
+  }
+
+  .hero-glass-trust-card {
+    padding: 6px 16px;
+    gap: 10px;
+  }
+
+  .hero-center-actions,
+  .hero-actions,
+  .extraordinary-banner-actions {
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+  }
+
+  .btn-hero-dark,
+  .btn-hero-white,
+  .btn-hero-dark-glossy,
+  .btn-hero-white-glossy,
+  .btn-extraordinary-white,
+  .btn-extraordinary-dark {
+    justify-content: center;
+    width: 100%;
+  }
+
+  .extraordinary-banner-section {
+    min-height: 420px;
+    padding-block: var(--space-2xl);
+  }
+
+  .hero-trust-badge {
+    margin-left: 0;
+    margin-top: 8px;
+  }
+
+  .hero-showcase-img {
+    height: 320px;
+  }
+
+  .floating-tag {
+    font-size: var(--fs-caption);
+    padding: 6px 12px;
+  }
+
+  .tag-pos-1 { top: 15px; right: 10px; }
+  .tag-pos-2 { top: 60px; left: 10px; }
+  .tag-pos-3 { bottom: 65px; left: 10px; }
+  .tag-pos-4 { bottom: 15px; right: 10px; }
+
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .service-row-left {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-sm);
+  }
+
+  .service-row-thumb {
+    width: 100%;
+    height: 180px;
+  }
+
+  .service-row-title {
+    font-size: var(--fs-h3);
+  }
+
+  .project-image-wrap img,
+  .project-item.tall-project .project-image-wrap img {
+    height: 280px;
+  }
+
+  .transform-float-item {
+    opacity: 0.35;
+    width: 170px;
+    height: 115px;
+  }
+
+  .footer-cta-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-md);
+  }
+
+  .footer-main-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-xl);
+  }
+
+  .footer-meta-split {
+    flex-direction: column;
+    gap: var(--space-sm);
+  }
+
+  .footer-bottom-bar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-sm);
+  }
+
+  .form-card {
+    padding: var(--space-md);
+  }
+
+  .chatbot-modal {
+    right: 15px;
+    left: 15px;
+    width: auto;
+  }
+}
