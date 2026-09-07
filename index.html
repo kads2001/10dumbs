@@ -82,7 +82,7 @@
 
       <div class="container hero-centered-container">
         <!-- Top Floating Tag Pills Row -->
-        <nav class="hero-tags-pill-row" aria-label="Quick Navigation">
+        <nav class="hero-tags-pill-row hero-reveal-init" aria-label="Quick Navigation">
           <a href="branding-design.html" class="hero-tag-pill">
             <span class="hero-tag-icon">
               <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#d97706" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
@@ -133,7 +133,7 @@
         </nav>
 
         <!-- Centered Heading -->
-        <h1 class="hero-center-heading">
+        <h1 class="hero-center-heading hero-reveal-init">
           <span class="hero-heading-row">Creating Digital</span>
           <span class="hero-heading-row">
             <span>Brand Solutions</span>
@@ -147,12 +147,12 @@
         </h1>
 
         <!-- Subtitle / Paragraph -->
-        <p class="hero-center-desc">
+        <p class="hero-center-desc hero-reveal-init">
           We build powerful brands, high-performing websites, and digital marketing strategies that drive measurable business growth.
         </p>
 
         <!-- Frosted Glass Trust Badge -->
-        <div class="hero-glass-trust-card">
+        <div class="hero-glass-trust-card hero-reveal-init">
           <div class="trust-text-stack">
             <span>Trusted By <strong>1800+</strong></span>
             <span>Businesses</span>
@@ -165,7 +165,7 @@
         </div>
 
         <!-- Centered CTA Buttons -->
-        <div class="hero-center-actions">
+        <div class="hero-center-actions hero-reveal-init">
           <a href="contact1.html" class="btn-hero-dark-glossy">
             <span>Start a Project</span>
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
@@ -189,7 +189,7 @@
     ================================================================ -->
     <section class="section-space" style="border-top: 1px solid var(--color-light-border);">
       <div class="container">
-        <div class="section-header-split">
+        <div class="section-header-split" data-reveal="up">
           <div>
             <span class="section-badge">WHY CHOOSE US</span>
             <h2>Why Leading <br>Brands Choose Us</h2>
@@ -198,7 +198,7 @@
           </p>
         </div>
 
-        <div class="stats-grid">
+        <div class="stats-grid" data-reveal-group>
           <article class="stat-card">
             <div class="stat-value"><span class="counter" data-target="24">0</span><sup>+</sup></div>
             <h3 class="stat-title">Industry Awards</h3>
@@ -229,7 +229,7 @@
     ================================================================ -->
     <section class="section-space services-dark-section" aria-label="Our Services">
       <div class="container">
-        <div class="section-header-split services-header">
+        <div class="section-header-split services-header" data-reveal="up">
           <div>
             <span class="section-badge">SERVICES</span>
             <h2>Building digital identities that <span class="text-accent">inspire</span> and <span class="text-accent">connect.</span></h2>
@@ -237,7 +237,7 @@
           <p class="services-header-desc">We deliver branding, design, and web solutions that not only bring ideas to life but also help your business stand out, connect with your audience, and grow with impact.</p>
         </div>
 
-        <div class="services-table">
+        <div class="services-table" data-reveal-group>
           <!-- Service 1: Brand Identity -->
           <article class="service-row">
             <div class="service-row-left">
@@ -319,7 +319,7 @@
     ================================================================ -->
     <section class="section-space">
       <div class="container">
-        <div class="section-header-split">
+        <div class="section-header-split" data-reveal="up">
           <div>
             <span class="section-badge">OUR CLIENTS</span>
             <h2>Brands We've <br>Partnered With</h2>
@@ -328,7 +328,7 @@
             experiences.</p>
         </div>
 
-        <div class="marquee-wrapper">
+        <div class="marquee-wrapper" data-reveal="fade">
           <div class="marquee-row">
             <div class="marquee-track">
               <div class="client-logo-card"><img src="assets/images/logos/1.png" alt="Partner Logo 1"></div>
@@ -381,7 +381,7 @@
         <img src="assets/images/bg111.jpg" alt="Creative Business Professionals in Modern Architecture" class="extraordinary-banner-img">
         <div class="extraordinary-banner-overlay"></div>
       </div>
-      <div class="container extraordinary-banner-container">
+      <div class="container extraordinary-banner-container" data-reveal="scale">
         <h2 class="extraordinary-banner-title">Ready to Build<br>Something Extraordinary?</h2>
         <p class="extraordinary-banner-subtitle">We craft brands, websites, and digital experiences that help businesses grow.</p>
         <div class="extraordinary-banner-actions">
@@ -414,81 +414,85 @@
     ================================================================ -->
     <section class="section-space projects-section" aria-label="Selected Projects">
       <div class="container">
-        <div class="projects-masonry-grid">
+        <div class="projects-masonry-grid" data-reveal-group>
           <!-- Left Column -->
           <div class="projects-col left-col">
-            <div class="projects-header-block">
+            <div class="projects-header-block" data-reveal="up">
               <span class="section-badge">PROJECTS</span>
               <h2>Creative Ideas <br>in Action</h2>
               <p>Clear answers to help you understand how we work, collaborate, and deliver results.</p>
             </div>
 
-            <!-- Card 1: Serenity Wellness -->
-            <article class="project-item">
-              <div class="project-image-wrap">
-                <div class="project-tags">
-                  <span>Content Strategy</span>
-                  <span>Web Design</span>
+            <div class="projects-parallax-col projects-parallax-left">
+              <!-- Card 1: Serenity Wellness -->
+              <article class="project-item">
+                <div class="project-image-wrap">
+                  <div class="project-tags">
+                    <span>Content Strategy</span>
+                    <span>Web Design</span>
+                  </div>
+                  <img src="assets/images/aboutportfolio1.jpeg" alt="Serenity Wellness Digital Hub">
                 </div>
-                <img src="assets/images/aboutportfolio1.jpeg" alt="Serenity Wellness Digital Hub">
-              </div>
-              <div class="project-info">
-                <h3>Serenity Wellness Digital Hub</h3>
-                <p>Created a soothing site that simplifies bookings and guides clients to resources.</p>
-              </div>
-            </article>
+                <div class="project-info">
+                  <h3>Serenity Wellness Digital Hub</h3>
+                  <p>Created a soothing site that simplifies bookings and guides clients to resources.</p>
+                </div>
+              </article>
 
-            <!-- Card 2: Modern Living -->
-            <article class="project-item">
-              <div class="project-image-wrap">
-                <div class="project-tags">
-                  <span>Web Design</span>
-                  <span>Brand Identity</span>
+              <!-- Card 2: Modern Living -->
+              <article class="project-item">
+                <div class="project-image-wrap">
+                  <div class="project-tags">
+                    <span>Web Design</span>
+                    <span>Brand Identity</span>
+                  </div>
+                  <img src="assets/images/lotushome1.jpg" alt="Modern Living E-Commerce Redesign">
                 </div>
-                <img src="assets/images/lotushome1.jpg" alt="Modern Living E-Commerce Redesign">
-              </div>
-              <div class="project-info">
-                <h3>Modern Living E-Commerce Redesign</h3>
-                <p>Elevated brand experience with sleek aesthetics and intuitive navigation.</p>
-              </div>
-            </article>
+                <div class="project-info">
+                  <h3>Modern Living E-Commerce Redesign</h3>
+                  <p>Elevated brand experience with sleek aesthetics and intuitive navigation.</p>
+                </div>
+              </article>
+            </div>
           </div>
 
           <!-- Right Column -->
           <div class="projects-col right-col">
-            <!-- Card 3: Engage+ Global Campaign (Tall) -->
-            <article class="project-item tall-project">
-              <div class="project-image-wrap">
-                <div class="project-tags">
-                  <span>Creative Strategy</span>
-                  <span>Marketing</span>
+            <div class="projects-parallax-col projects-parallax-right">
+              <!-- Card 3: Engage+ Global Campaign (Tall) -->
+              <article class="project-item tall-project">
+                <div class="project-image-wrap">
+                  <div class="project-tags">
+                    <span>Creative Strategy</span>
+                    <span>Marketing</span>
+                  </div>
+                  <img src="assets/images/camelotbanner.jpeg" alt="Engage+ Global Campaign">
                 </div>
-                <img src="assets/images/camelotbanner.jpeg" alt="Engage+ Global Campaign">
-              </div>
-              <div class="project-info">
-                <h3>Engage+ Global Campaign</h3>
-                <p>Launching a campaign that doubled client engagement.</p>
-              </div>
-            </article>
+                <div class="project-info">
+                  <h3>Engage+ Global Campaign</h3>
+                  <p>Launching a campaign that doubled client engagement.</p>
+                </div>
+              </article>
 
-            <!-- Card 4: Lifeflow App UX Overhaul -->
-            <article class="project-item">
-              <div class="project-image-wrap">
-                <div class="project-tags">
-                  <span>UI/UX Design</span>
-                  <span>Creative Strategy</span>
+              <!-- Card 4: Lifeflow App UX Overhaul -->
+              <article class="project-item">
+                <div class="project-image-wrap">
+                  <div class="project-tags">
+                    <span>UI/UX Design</span>
+                    <span>Creative Strategy</span>
+                  </div>
+                  <img src="assets/images/websiteservice.jpeg" alt="Lifeflow App UX Overhaul">
                 </div>
-                <img src="assets/images/websiteservice.jpeg" alt="Lifeflow App UX Overhaul">
-              </div>
-              <div class="project-info">
-                <h3>Lifeflow App UX Overhaul</h3>
-                <p>Designing a seamless app experience for lifestyle audiences.</p>
-              </div>
-            </article>
+                <div class="project-info">
+                  <h3>Lifeflow App UX Overhaul</h3>
+                  <p>Designing a seamless app experience for lifestyle audiences.</p>
+                </div>
+              </article>
+            </div>
           </div>
         </div>
 
-        <div class="text-center" style="margin-top: var(--space-2xl);">
+        <div class="text-center" style="margin-top: var(--space-2xl);" data-reveal="up">
           <a href="portfolio5.html" class="btn btn-dark">
             Explore All Projects
             <span class="btn-icon-circle">
@@ -508,7 +512,7 @@
     ================================================================ -->
     <section class="section-space">
       <div class="container">
-        <div class="section-header-split">
+        <div class="section-header-split" data-reveal="up">
           <div>
             <span class="section-badge">TESTIMONIALS</span>
             <h2>What Our <br>Clients Say</h2>
@@ -516,7 +520,7 @@
           <p>Discover how we help ambitious founders and enterprises build enduring brand loyalty and exceptional digital growth.</p>
         </div>
 
-        <div class="testimonials-grid">
+        <div class="testimonials-grid" data-reveal-group>
           <article class="testimonial-card">
             <div>
               <div class="quote-icon" aria-hidden="true">“</div>
@@ -570,7 +574,7 @@
     ================================================================ -->
     <section class="section-space" style="background-color: var(--color-light-surface);">
       <div class="container capabilities-grid">
-        <div class="capabilities-left">
+        <div class="capabilities-left" data-reveal="left">
           <span class="section-badge">CAPABILITIES</span>
           <h2>Things <br>We Do <br>Best</h2>
           <p>From strategic brand identity to complex web development, we bring precision and creativity to every
@@ -586,7 +590,7 @@
             </span>
           </a>
         </div>
-        <div class="accordion-list" role="region" aria-label="Capabilities List">
+        <div class="accordion-list" role="region" aria-label="Capabilities List" data-reveal-group>
           <div class="accordion-item active">
             <button class="accordion-header" aria-expanded="true">
               <h3>UI/UX Design</h3>
@@ -673,7 +677,7 @@
       <!-- Interactive Dynamic Mouse Wave Trail Container -->
       <div class="transform-trail-container" aria-hidden="true"></div>
 
-      <div class="container transform-ideas-content">
+      <div class="container transform-ideas-content" data-reveal="scale">
         <div class="transform-badge">
           <span class="transform-badge-icon"></span>
           <span>Get Started</span>
@@ -699,7 +703,7 @@
   <footer class="site-footer" role="contentinfo">
     <div class="container">
       <!-- Top CTA Row -->
-      <div class="footer-cta-row">
+      <div class="footer-cta-row" data-reveal="up">
         <h2 class="footer-cta-title">
           Got a project?<br>
           Let's work <span class="footer-cta-highlight">together.</span>
@@ -712,7 +716,7 @@
       <hr class="footer-divider">
 
       <!-- Middle Main Grid -->
-      <div class="footer-main-grid">
+      <div class="footer-main-grid" data-reveal="fade">
         <!-- Left Column: Social Circles & Slash Nav -->
         <div class="footer-col-left">
           <div class="footer-social-row">

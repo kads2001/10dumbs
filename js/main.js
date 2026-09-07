@@ -97,6 +97,14 @@
       const menu = $('.nav-dropdown-menu', item);
 
       if (toggle && menu) {
+        toggle.addEventListener('click', (e) => {
+          if (window.innerWidth <= 991) {
+            e.preventDefault();
+            item.classList.toggle('open');
+            menu.classList.toggle('show');
+          }
+        });
+
         toggle.addEventListener('keydown', (e) => {
           if (e.key === 'ArrowDown' || e.key === 'Enter' || e.key === ' ') {
             e.preventDefault();
@@ -338,13 +346,53 @@
   }
 
   /* --------------------------------------------------------------------------
-     7. SCROLL REVEAL ANIMATIONS
+     7. SCROLL REVEAL & COMPONENT ANIMATION SYSTEM
      -------------------------------------------------------------------------- */
   function initAnimations() {
-    if (prefersReducedMotion()) return;
+    if (prefersReducedMotion()) {
+      $$('[data-reveal]').forEach((el) => el.classList.add('revealed'));
+      $$('.hero-reveal-init').forEach((el) => el.classList.add('hero-revealed'));
+      return;
+    }
 
+    // 1. Trigger Hero Entrance Sequence on page load
+    const heroElements = $$('.hero-reveal-init');
+    if (heroElements.length) {
+      setTimeout(() => {
+        heroElements.forEach((el, index) => {
+          setTimeout(() => {
+            el.classList.add('hero-revealed');
+          }, index * 120);
+        });
+      }, 80);
+    }
+
+    // 2. Automatically stagger children of grid/list containers
+    const staggerContainers = $$(
+      '[data-reveal-group], .stats-grid, .services-table, .projects-masonry-grid, .testimonials-grid, .accordion-list'
+    );
+    staggerContainers.forEach((container) => {
+      const items = $$(
+        ':scope > article, :scope > .stat-card, :scope > .service-row, :scope > .project-item, :scope > .testimonial-card, :scope > .accordion-item',
+        container
+      );
+      items.forEach((item, idx) => {
+        if (!item.hasAttribute('data-reveal')) {
+          item.setAttribute('data-reveal', 'up');
+        }
+        if (!item.style.transitionDelay && !item.hasAttribute('data-reveal-delay')) {
+          const delay = Math.min((idx + 1) * 80, 480);
+          item.style.transitionDelay = `${delay}ms`;
+        }
+      });
+    });
+
+    // 3. Setup IntersectionObserver for all reveal elements
     const revealElements = $$('[data-reveal]');
-    if (!revealElements.length || !('IntersectionObserver' in window)) return;
+    if (!revealElements.length || !('IntersectionObserver' in window)) {
+      revealElements.forEach((el) => el.classList.add('revealed'));
+      return;
+    }
 
     const revealObserver = new IntersectionObserver((entries, observer) => {
       entries.forEach((entry) => {
@@ -359,24 +407,91 @@
     });
 
     revealElements.forEach((el) => {
-      el.style.opacity = '0';
-      el.style.transform = 'translateY(24px)';
-      el.style.transition = 'opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1)';
       revealObserver.observe(el);
     });
-
-    const style = document.createElement('style');
-    style.textContent = `
-      [data-reveal].revealed {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    `;
-    document.head.appendChild(style);
   }
 
   /* --------------------------------------------------------------------------
-     8. TRANSFORM SECTION MOUSE WAVE & 12-IMAGE TRAIL REVEAL
+     8. PROJECTS DUAL-COLUMN PARALLAX SCROLL ANIMATION
+     -------------------------------------------------------------------------- */
+  function initProjectsParallax() {
+    if (prefersReducedMotion()) return;
+
+    const section = $('.projects-section');
+    const leftCol = $('.projects-parallax-left', section);
+    const rightCol = $('.projects-parallax-right', section);
+
+    if (!section || !leftCol || !rightCol) return;
+
+    let targetLeftY = 0;
+    let targetRightY = 0;
+    let currentLeftY = 0;
+    let currentRightY = 0;
+    let isRunning = false;
+
+    // Amplitude: Maximum vertical travel distance in pixels
+    const amplitude = 95;
+
+    const render = () => {
+      // Lerp for buttery smoothness
+      const ease = 0.09;
+      currentLeftY += (targetLeftY - currentLeftY) * ease;
+      currentRightY += (targetRightY - currentRightY) * ease;
+
+      leftCol.style.transform = `translate3d(0, ${currentLeftY.toFixed(2)}px, 0)`;
+      rightCol.style.transform = `translate3d(0, ${currentRightY.toFixed(2)}px, 0)`;
+
+      if (
+        Math.abs(targetLeftY - currentLeftY) > 0.05 ||
+        Math.abs(targetRightY - currentRightY) > 0.05
+      ) {
+        requestAnimationFrame(render);
+      } else {
+        isRunning = false;
+      }
+    };
+
+    const update = () => {
+      if (window.innerWidth <= 991) {
+        leftCol.style.transform = 'none';
+        rightCol.style.transform = 'none';
+        currentLeftY = 0;
+        currentRightY = 0;
+        targetLeftY = 0;
+        targetRightY = 0;
+        return;
+      }
+
+      const rect = section.getBoundingClientRect();
+      const windowHeight = window.innerHeight || document.documentElement.clientHeight;
+
+      // Only calculate when section is in or near viewport
+      if (rect.bottom >= -150 && rect.top <= windowHeight + 150) {
+        const totalDistance = windowHeight + rect.height;
+        const currentProgress = (windowHeight - rect.top) / totalDistance;
+        const progress = Math.max(0, Math.min(1, currentProgress));
+
+        // When scrolling down:
+        // Left cards move UP (from +amplitude to -amplitude)
+        targetLeftY = (0.5 - progress) * 2 * amplitude;
+
+        // Right cards move DOWN (from -amplitude to +amplitude)
+        targetRightY = (progress - 0.5) * 2 * amplitude;
+
+        if (!isRunning) {
+          isRunning = true;
+          requestAnimationFrame(render);
+        }
+      }
+    };
+
+    window.addEventListener('scroll', update, { passive: true });
+    window.addEventListener('resize', update, { passive: true });
+    update();
+  }
+
+  /* --------------------------------------------------------------------------
+     9. TRANSFORM SECTION MOUSE WAVE & 12-IMAGE TRAIL REVEAL
      -------------------------------------------------------------------------- */
   function initTransformWaveInteraction() {
     const section = $('.transform-ideas-section');
@@ -619,6 +734,7 @@
     initContactForm();
     initChatbot();
     initAnimations();
+    initProjectsParallax();
     initTransformWaveInteraction();
   };
 
