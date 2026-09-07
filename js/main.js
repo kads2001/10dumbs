@@ -91,20 +91,12 @@
       });
     }
 
-    // Accessible Dropdown Keyboard & Mobile Touch Navigation
+    // Accessible Dropdown Keyboard Navigation
     dropdownItems.forEach((item) => {
       const toggle = $('.nav-link', item);
       const menu = $('.nav-dropdown-menu', item);
 
       if (toggle && menu) {
-        toggle.addEventListener('click', (e) => {
-          if (window.innerWidth <= 900) {
-            e.preventDefault();
-            menu.classList.toggle('show');
-            item.classList.toggle('open');
-          }
-        });
-
         toggle.addEventListener('keydown', (e) => {
           if (e.key === 'ArrowDown' || e.key === 'Enter' || e.key === ' ') {
             e.preventDefault();
